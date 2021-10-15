@@ -1,0 +1,24 @@
+ 
+  <ion-row>
+    <ion-col size="12" size-md *ngFor="let heroe of dataHeroes" >
+      <ion-card class="cardHeroe">
+        <ion-card-header>
+          <ion-card-subtitle>{{heroe.superhero}} is {{ heroe.alter_ego}}</ion-card-subtitle>
+          <ion-card-title>{{heroe.publisher}}</ion-card-title>
+        </ion-card-header>
+    
+        <ion-img class="imgCardHero" [src]="heroe.id | urlHeroes"></ion-img>
+      
+        <ion-card-content>
+          First Appearance: {{heroe.first_appearance}}
+        </ion-card-content>
+        <ion-button [routerLink]="['../detail',heroe|json]" expand="block" fill="clear" shape="round">
+          More
+        </ion-button>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+

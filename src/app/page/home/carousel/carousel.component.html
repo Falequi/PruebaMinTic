@@ -1,0 +1,39 @@
+<ion-content class='contentCarrosel'>
+  <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    proportion="140"
+    slides="5"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="false"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+  >
+
+  <mat-carousel-slide
+  #matCarouselSlide
+  *ngFor="let heroe of dataHeroes"
+  >
+  <ion-card class="carousel"> 
+    <ion-card-header>
+      <ion-card-title>{{heroe.superhero}}</ion-card-title>
+      <ion-card-subtitle>{{heroe.publisher}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content >
+      <ion-img  [src]="heroe.id | urlHeroes" class="imgCarousel"></ion-img>
+       {{heroe.alter_ego}}
+       <br>
+       {{heroe.first_appearance}}
+       <br>
+       {{heroe.characters}}
+       <ion-button [routerLink]="['../detail',heroe|json]" expand="block" fill="clear" shape="round">
+          More
+        </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  </mat-carousel-slide>
+  </mat-carousel>
+</ion-content>
